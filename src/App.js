@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState({})
-  const [location, setLocation] = useState('')
+  const [data, setData] = useState({});
+  const [location, setLocation] = useState('');
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=bd6efe1427efcf481f35bd6d3ac63c74`;
 
   const searchLocation = (event) => {
     if (event.key === 'Enter') {
@@ -15,7 +15,7 @@ function App() {
       })
       setLocation('')
     }
-  }
+  };
 
   return (
     <div className="app">
@@ -38,6 +38,7 @@ function App() {
           <div className="description">
             {data.weather ? <p>{data.weather[0].main}</p> : null}
           </div>
+          <p>{data.name}</p>
         </div>
 
         {data.name !== undefined &&
@@ -56,9 +57,6 @@ function App() {
             </div>
           </div>
         }
-
-
-
       </div>
     </div>
   );
